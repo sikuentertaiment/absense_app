@@ -1,0 +1,112 @@
+<!doctype html>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Admin: Aplikasi Pendataan Inoice Nasabah</title>
+</head>
+<link rel=stylesheet href="https://cdn.datatables.net/2.1.2/css/dataTables.dataTables.min.css">
+<style>
+	::-webkit-scrollbar {
+	    width: 0;
+	    height: 0;
+	}
+	body{
+		font-size:16px;
+		font-family: calibri;
+	}
+	.absenbutton{
+		padding: 10px 10px;
+    background: #3cdb7f;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #169316;
+    display: flex;
+    align-items: center;
+	}
+	input{
+		padding:10px;
+	}
+	button{
+		padding:10px;
+	}
+	select{
+		padding:15px;
+	}
+	#top_layer{
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		background:#00000047;
+		top: 0;
+		left: 0;
+		display: none;
+	}
+	#cutable{
+		height:100%;
+		display: flex;
+		flex-direction: column;
+	}
+	#cutable #header{
+		display:flex;
+	}
+	#cutable #body{
+		height:100%;
+		border:1px solid gainsboro;
+		border-top:none;
+		background: whitesmoke;
+		overflow:auto;
+	}
+	#cutable #body div div{
+/*		padding:5px 20px;*/
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	#cutable #header div{
+		border:1px solid gainsboro;
+		padding:15px;
+		border-right:none;
+		white-space: nowrap;
+		text-align: center;
+		width: 100%;
+	}
+</style>
+<body>
+	<div id=app style="
+		position:fixed;
+		width:100%;
+		height:100%;
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		background:white;
+		top: 0;
+		left: 0;
+	">
+		<div id=box style="
+			padding:20px;
+			width: 100%;
+			overflow: auto;
+		">
+			<div id=table style=height:100%;>
+			</div>
+		</div>
+	</div>
+	<div id=top_layer>
+		
+	</div>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<script src="https://cdn.datatables.net/2.1.2/js/dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/plug-ins/2.1.2/features/pageResize/dataTables.pageResize.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ 	<script src=./src/scripts/infinity.js></script>
+ 	<script src=./src/scripts/app.js></script>
+ 	<script src=./src/scripts/view.js></script>
+</body>
+</html>

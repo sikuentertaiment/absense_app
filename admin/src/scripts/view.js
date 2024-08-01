@@ -3,41 +3,50 @@ const view = {
 		return makeElement('div',{
 			id:'cutable',
 			innerHTML:`
-				<div style=display:flex;align-items:center;justify-content:space-between;margin-bottom:15px;>
-					<div style=font-weight:bold;font-size:24px;>DATA ABSENSI KARYAWAN</div>
-					<div style="display:flex;gap:5px;">
-						<div style=display:flex;align-items:center;gap:5px;>
-							<div style=width:24px;margin-right:10px;>
-								<img src=./src/media/search.png style=width:100%;>
-							</div>
-							<div style=display:flex;>
-								<input placeholder="Cari table..." id=search_value>
+				<div style=display:flex;align-items:space-between;justify-content:center;margin-bottom:15px;flex-direction:column;>
+					<div style=display:flex;justify-content:space-between;align-items:center;margin-bottom:30px;>
+						<div style=font-weight:bold;font-size:24px;>DATA ABSENSI KARYAWAN</div>
+						<div style="width:32px;height:32px;cursor:pointer;">
+							<img src=./src/media/user.png style=width:100%;object-fit:contain;>
+						</div>
+					</div>
+					<div style="display:flex;gap:5px;justify-content:space-between;">
+						<div style=display:flex;gap:5px;>
+							<button style="font-weight:bold;display:flex;align-items:flex-end;gap:5px;cursor:pointer;" id=refreshbutton class=child>
+								<img src=./src/media/refresh.png width=16>
+								PERBARUI DATA
+							</button>
+							<button style="font-weight:bold;display:flex;align-items:flex-end;gap:5px;cursor:pointer;" id=time_config class=child>
+								<img src=./src/media/time_config.png width=16>
+								KONFIG WAKTU
+							</button>
+							<button style="font-weight:bold;display:flex;align-items:flex-end;gap:5px;cursor:pointer;" id=daftarkaryawan class=child>
+								<img src=./src/media/stats.png width=16>
+								PRESENSI
+							</button>
+							<button style="font-weight:bold;display:flex;align-items:flex-end;gap:5px;cursor:pointer;" id=tambahkaryawan class=child>
+								<img src=./src/media/group.png width=18>
+								TAMBAH KARYAWAN
+							</button>
+							<button style="font-weight:bold;display:flex;align-items:flex-end;gap:5px;cursor:pointer;" id=karyawan class=child>
+								<img src=./src/media/group.png width=18>
+								KARYAWAN
+							</button>
+							<button style="font-weight:bold;display:flex;align-items:flex-end;gap:5px;cursor:pointer;" id=choosedate class=child>
+								<img src=./src/media/calendar.png width=18>
+								PILIH TANGGAL
+							</button>
+						</div>
+						<div>
+							<div style=display:flex;align-items:center;gap:5px;>
+								<div style=width:24px;margin-right:10px;>
+									<img src=./src/media/search.png style=width:100%;>
+								</div>
+								<div style=display:flex;>
+									<input placeholder="Cari table..." id=search_value>
+								</div>
 							</div>
 						</div>
-						<button style="font-weight:bold;display:flex;align-items:flex-end;gap:5px;cursor:pointer;" id=refreshbutton class=child>
-							<img src=./src/media/refresh.png width=16>
-							PERBARUI DATA
-						</button>
-						<button style="font-weight:bold;display:flex;align-items:flex-end;gap:5px;cursor:pointer;" id=time_config class=child>
-							<img src=./src/media/time_config.png width=16>
-							KONFIG WAKTU
-						</button>
-						<button style="font-weight:bold;display:flex;align-items:flex-end;gap:5px;cursor:pointer;" id=daftarkaryawan class=child>
-							<img src=./src/media/stats.png width=16>
-							PRESENSI
-						</button>
-						<button style="font-weight:bold;display:flex;align-items:flex-end;gap:5px;cursor:pointer;" id=tambahkaryawan class=child>
-							<img src=./src/media/group.png width=18>
-							TAMBAH KARYAWAN
-						</button>
-						<button style="font-weight:bold;display:flex;align-items:flex-end;gap:5px;cursor:pointer;" id=karyawan class=child>
-							<img src=./src/media/group.png width=18>
-							KARYAWAN
-						</button>
-						<button style="font-weight:bold;display:flex;align-items:flex-end;gap:5px;cursor:pointer;" id=choosedate class=child>
-							<img src=./src/media/calendar.png width=18>
-							PILIH TANGGAL
-						</button>
 					</div>
 				</div>
 				<div id=header>
@@ -220,7 +229,7 @@ const view = {
 			`,
 			innerHTML:`
 				<div style="
-					width:400px;
+					width:40%;
 					padding:25px;
 					background:white;
 					border:1px solid gainsboro;
@@ -264,7 +273,7 @@ const view = {
 			`,
 			innerHTML:`
 				<div style="
-					width:400px;
+					width:40%;
 					padding:25px;
 					background:white;
 					border:1px solid gainsboro;
@@ -344,7 +353,7 @@ const view = {
 			`,
 			innerHTML:`
 				<div style="
-					width:400px;
+					width:40%;
 					padding:25px;
 					background:white;
 					border:1px solid gainsboro;
@@ -409,7 +418,7 @@ const view = {
 			`,
 			innerHTML:`
 				<div style="
-					width:400px;
+					width:40%;
 					padding:25px;
 					background:white;
 					border:1px solid gainsboro;
@@ -525,7 +534,7 @@ const view = {
 			`,
 			innerHTML:`
 				<div style="
-					width:400px;
+					width:40%;
 					padding:25px;
 					background:white;
 					border:1px solid gainsboro;
@@ -740,15 +749,15 @@ const view = {
 							<input placeholder="Telusuri data karyawan..." id=finder>
 						</div>
 					</div>
-					<div id=bodytable style=height:100%;padding:20px;display:flex;flex-direction:column;>
-						<div id=header style=display:flex;min-height:32px;background:whitesmoke;align-items:center;>
+					<div id=bodytable style=height:100%;display:flex;flex-direction:column;>
+						<div id=header style=display:flex;min-height:32px;background:whitesmoke;align-items:center;padding:15px>
 							<div style=max-width:100px;min-width:100px;>NO</div>
 							<div style=width:100%;>NIK</div>
 							<div style=width:100%;>NAMA</div>
 							<div style=width:100%;>DIVISI</div>
 							<div style=width:100%;>TINDAKAN</div>
 						</div>
-						<div style=height:100%; id=body>
+						<div style=height:100%;padding:15px id=body>
 							<div style=>
 								
 							</div>
@@ -883,7 +892,7 @@ const view = {
 			`,
 			innerHTML:`
 				<div style="
-					width:400px;
+					width:40%;
 					padding:25px;
 					background:white;
 					border:1px solid gainsboro;

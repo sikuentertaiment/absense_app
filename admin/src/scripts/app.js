@@ -32,6 +32,9 @@ const app = {
 		this.box.style.overflow = 'auto';
 		const status = await this.loadDataAbsen();
 		this.normalizeData();
+		const isLogin = this.checkUserLogin();
+		if(!isLogin)
+			return this.doLogin();
 		this.showTable();
 	},
 	loadDataAbsen(){
@@ -67,6 +70,20 @@ const app = {
 	},
 	showTable(){
 		this.table.addChild(view.table(this.normalized_data));
+	},
+	dblsname:'absense_db',
+	checkUserLogin(){
+		let data = localStorage.getItem(btoa(this.dblsname));
+		if(!data)
+			return false;
+		data = JSON.parse(btoa(data));
+		if(data.validity < new Date().getTime())
+			return false;
+		this.user = data;
+		return true;
+	},
+	doLogin(){
+		this.topLayer.replaceChild(view.login());
 	}
 }
 app.init();

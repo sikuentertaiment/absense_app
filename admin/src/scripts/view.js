@@ -885,7 +885,6 @@ const view = {
 		})
 	},
 	editkaryawan(data){
-		console.log(data);
 		return makeElement('div',{
 			style:`
 				width:100%;height:100%;display:flex;justify-content:center;align-items:flex-start;
@@ -959,6 +958,103 @@ const view = {
 						text:response.message
 					})
 					app.topLayer.replaceChild(view.listKaryawan());
+				}
+			}
+		})
+	},
+	login(){
+		return makeElement('div',{
+			style:`
+				width:100%;height:100%;display:flex;justify-content:center;align-items:flex-start;
+			`,
+			innerHTML:`
+				<div style="
+					width:100%;
+					background:whitesmoke;
+					border:1px solid gainsboro;
+					border-top:0;
+					height:100%;
+					display:flex;
+					align-items:flex-start;
+					justify-content:center;
+				">
+					<div style="
+						width:30%;
+						height:40%;
+						border:1px solid gainsboro;
+						background:white;
+						display:flex;
+						flex-direction:column;
+						margin-top:100px;
+						border-radius:20px;
+						box-shadow: 10px 10px #c9c9c9;
+					">
+						<div style=height:30%;display:flex;align-items:center;justify-content:center;font-size:32px;>
+							ADMIN LOGIN
+						</div>
+						<div style="height:40%;padding:0 40px;">
+							<div style=margin-bottom:10px;>
+								<div style=margin-bottom:5px;>
+									USERNAME
+								</div>
+								<div style=display:flex;>
+									<input placeholder="Masukan USERNAME..." style="
+										width: 100%;
+									    background: whitesmoke;
+									    border: 1px solid gainsboro;
+									    padding: 15px;
+									    border-radius: 5px;
+									" id=username>
+								</div>
+							</div>
+							<div>
+								<div style=margin-bottom:5px;>
+									PASSWORD
+								</div>
+								<div style=display:flex;>
+									<input placeholder="Masukan PASSWORD..." style="
+										width: 100%;
+									    background: whitesmoke;
+									    border: 1px solid gainsboro;
+									    padding: 15px;
+									    border-radius: 5px;
+									" type=password id=password>
+								</div>
+							</div>
+						</div>
+						<div style="height:30%;display:flex;align-items:center;justify-content:center;padding:0 40px;">
+							<button style="
+								width: 100%;
+							    /* border: 1px solid gainsboro; */
+							    border-radius: 5px;
+							    font-weight: bold;
+							    color: gainsboro;
+							    color: gray;
+							    background: black;
+							    color: white;
+							    box-shadow: 3px 3px gainsboro;
+							" class=child id=process>LOGIN</button>
+						</div>
+					</div>
+				</div>
+			`,
+			autoDefine:true,
+			async onadded(){
+				app.topLayer.show();
+				this.process.onclick = ()=>{
+					const data = {};
+					let inValid = null;
+					this.findall('input').forEach((item)=>{
+						if(!item.value.length && !inValid)
+							inValid = item.id;
+						data[item.id] = item.value;
+					})
+					if(inValid)
+						return Swal.fire({
+							icon:'error',
+							title:'Gagal',
+							text:`${inValid.toUpperCase()} tidak boleh kosong!`
+						})
 				}
 			}
 		})
